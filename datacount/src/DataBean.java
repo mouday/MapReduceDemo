@@ -1,5 +1,3 @@
-package datacount;
-
 import org.apache.hadoop.io.Writable;
 
 import java.io.DataInput;
@@ -16,7 +14,8 @@ public class DataBean implements Writable {
     private Long downPayload;
     private Long totalPayload;
 
-    public DataBean(){}
+    public DataBean() {
+    }
 
     public DataBean(String telNo, Long upPayload, Long downPayload) {
         this.telNo = telNo;
@@ -27,12 +26,7 @@ public class DataBean implements Writable {
 
     @Override
     public String toString() {
-        return "DataBean{" +
-                "telNo='" + telNo + '\'' +
-                ", upPayload=" + upPayload +
-                ", downPayload=" + downPayload +
-                ", totalPayload=" + totalPayload +
-                '}';
+        return "[" + telNo + " " + upPayload + " " + downPayload + " " + totalPayload + "]";
     }
 
     public String getTelNo() {
@@ -74,6 +68,7 @@ public class DataBean implements Writable {
 
     /**
      * 序列化
+     *
      * @param dataOutput
      * @throws IOException
      */
@@ -88,6 +83,7 @@ public class DataBean implements Writable {
     /**
      * 反序列化
      * 注意：1.类型 2.顺序
+     *
      * @param dataInput
      * @throws IOException
      */

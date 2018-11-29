@@ -1,0 +1,22 @@
+zhangsan@163.com	6000	0	2014-02-20
+lisi@163.com	2000	0	2014-02-20
+lisi@163.com	0	100	2014-02-20
+zhangsan@163.com	3000	0	2014-02-20
+wangwu@126.com	9000	0	2014-02-20
+wangwu@126.com	0	200		2014-02-20
+
+
+
+SumStep输出
+
+# hadoop fs -cat /info-out/part-r-00000
+lisi@163.com	2000.0	100.0	1900.0
+wangwu@126.com	9000.0	200.0	8800.0
+zhangsan@163.com	9000.0	0.0	9000.0
+
+SortStep输出
+
+# hadoop fs -cat /info-out2/part-r-00000
+zhangsan@163.com	9000.0	0.0	9000.0
+wangwu@126.com	9000.0	200.0	8800.0
+lisi@163.com	2000.0	100.0	1900.0

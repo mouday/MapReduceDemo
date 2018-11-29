@@ -1,5 +1,3 @@
-package datacount;
-
 import org.apache.hadoop.conf.Configuration;
 import org.apache.hadoop.fs.Path;
 import org.apache.hadoop.io.Text;
@@ -11,6 +9,9 @@ import java.io.IOException;
 
 /**
  * 组装任务到Job
+ * 打包成普通jar包，
+ * 上传至hadoop：hadoop fs -put data.dat /data.dat
+ * 运行任务：hadoop jar hdfsdemo.jar DataCount /data.dat /dataout
  */
 public class DataCount {
     public static void main(String[] args) throws IOException, ClassNotFoundException, InterruptedException {
@@ -36,8 +37,16 @@ public class DataCount {
         job.setOutputKeyClass(Text.class);
         job.setOutputValueClass(DataBean.class);
 
+        // 设置分区,数据分流
+        job.setPartitionerClass(MyPartitioner.class);
+
+        // 设置启动Reducer数量
+        job.setNumReduceTasks(Integer.parseInt(args[2]));
+
         // 启动任务
         job.waitForCompletion(true);
+
+        //运行 hadoop jar datacount.jar DataCount /data.dat /data-4 4
 
     }
 }
