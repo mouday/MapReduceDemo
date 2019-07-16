@@ -1,0 +1,15 @@
+hello Tom
+hello Jone
+hello world
+hello world
+hello Jack
+hello Rose
+
+
+# 运行之后
+Jack	1
+Jone	1
+Rose	1
+Tom	1
+hello	6
+world	2

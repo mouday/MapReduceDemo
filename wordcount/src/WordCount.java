@@ -37,6 +37,9 @@ public class WordCount {
         // 设置输出文件路径
         FileOutputFormat.setOutputPath(job, new Path(args[1]));
 
+        // 添加combiner过程
+        job.setCombinerClass(ReduceDemo.class);
+
         // 提交任务
         job.waitForCompletion(true);
 

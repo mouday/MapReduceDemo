@@ -1,0 +1,8 @@
+Good	b.txt->1
+Hello	b.txt->1 c.txt->1 a.txt->1
+Jack	a.txt->1 c.txt->1
+Jone	a.txt->1
+Man	    b.txt->1
+Tom	    b.txt->1 a.txt->1
+hello	a.txt->2 c.txt->2 b.txt->2
+world	c.txt->2
